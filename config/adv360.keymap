@@ -8,6 +8,11 @@
 #define HYP(key) LS(LC(LA(LG(key))))
 #define HYPER    LS(LC(LA(LGUI)))
 
+// caps word: whats part of the word beyond alphabetic?
+&caps_word {
+	continue-list = <UNDERSCORE MINUS>;
+};
+
 / {
   behaviors {
     #include "macros.dtsi"
