@@ -5,9 +5,12 @@
 #include <dt-bindings/zmk/backlight.h>
 
 
-#define HYP(key) LS(LC(LA(LG(key))))
-#define HYPER    LS(LC(LA(LGUI)))
-#define SCRNSHOT LS(LC(LA(S)))
+#define HYP(key)  LS(LC(LA(LG(key))))
+#define HYPER     LS(LC(LA(LGUI)))
+#define SCRNSHOT  LS(LC(LA(S)))
+#define EXPOSE    LG(TAB)
+#define WKS_LEFT  LC(LG(LEFT))
+#define WKS_RIGHT LC(LG(RIGHT))
 
 #define L_BASE 0
 #define L_KP   1
@@ -43,11 +46,11 @@
     // index: 0 L_BASE
     default_layer {
       bindings = <
-        &kp EQUAL     &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog L_KP                                                                              &mo L_MOD &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB       &kp Q     &kp W    &kp E    &kp R      &kp T  &kp A                                                                                  &kp B     &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &lt L_NAV ESC &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp HYPER                &kp LGUI        &kp RALT            &none     &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT     &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp ESC      &none &none &kp PG_UP       &none     &none               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &kp LCTRL     &kp GRAVE &none    &none    &none                    &kp BSPC &kp DEL   &kp LA(TAB)              &lt L_NAV PG_DN &kp ENTER &kp SPACE                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo L_FN
+        &kp EQUAL     &kp N1    &kp N2       &kp N3        &kp N4     &kp N5 &tog L_KP                                                                              &mo L_MOD &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp TAB       &kp Q     &kp W        &kp E         &kp R      &kp T  &kp A                                                                                  &kp B     &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
+        &lt L_NAV ESC &kp A     &kp S        &kp D         &kp F      &kp G  &none           &kp LCTRL &kp EXPOSE              &kp LGUI        &kp RALT            &none     &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp LSHFT     &kp Z     &kp X        &kp C         &kp V      &kp B         &none    &none     &kp ESC     &none &none &kp PG_UP       &none     &none               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+        &kp LCTRL     &kp GRAVE &kp WKS_LEFT &kp WKS_RIGHT &none                    &kp BSPC &kp DEL   &kp LA(TAB)             &lt L_NAV PG_DN &kp ENTER &kp SPACE                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo L_FN
       >;
     };
 
