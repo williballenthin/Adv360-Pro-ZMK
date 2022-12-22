@@ -19,6 +19,8 @@
 #define L_NONE 4
 #define L_NAV  5
 
+#define AS(keycode) &as LS(keycode) keycode     // autoshift, references behavior `as`
+
 // caps word: whats part of the word beyond alphabetic?
 &caps_word {
 	continue-list = <UNDERSCORE MINUS>;
@@ -38,6 +40,15 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
+    as: auto_shift {
+      compatible = "zmk,behavior-hold-tap";
+      label = "AUTO_SHIFT";
+      #binding-cells = <2>;
+      tapping_term_ms = <135>;
+      quick_tap_ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
   };
 
   keymap {
@@ -46,11 +57,11 @@
     // index: 0 L_BASE
     default_layer {
       bindings = <
-        &kp EQUAL     &kp N1    &kp N2       &kp N3        &kp N4     &kp N5 &tog L_KP                                                                              &mo L_MOD &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB       &kp Q     &kp W        &kp E         &kp R      &kp T  &kp A                                                                                  &kp B     &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
+        AS(EQUAL)     AS(N1)    AS(N2)       AS(N3)        AS(N4)     AS(N5) &tog L_KP                                                                             &mo L_MOD AS(N6) AS(N7) AS(N8)    AS(N9)   AS(N0)   AS(MINUS)
+        &kp TAB       &kp Q     &kp W        &kp E         &kp R      &kp T  &kp A                                                                                 &kp B     &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
         &lt L_NAV ESC &kp A     &kp S        &kp D         &kp F      &kp G  &none           &kp LCTRL &kp EXPOSE              &kp LGUI        &kp RALT            &none     &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
         &kp LSHFT     &kp Z     &kp X        &kp C         &kp V      &kp B         &none    &none     &kp ESC     &none &none &kp PG_UP       &none     &none               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &kp LCTRL     &kp GRAVE &kp WKS_LEFT &kp WKS_RIGHT &none                    &kp BSPC &kp DEL   &kp LA(TAB)             &lt L_NAV PG_DN &kp ENTER &kp SPACE                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo L_FN
+        &kp LCTRL     AS(GRAVE) &kp WKS_LEFT &kp WKS_RIGHT &none                    &kp BSPC &kp DEL   &kp LA(TAB)             &lt L_NAV PG_DN &kp ENTER &kp SPACE                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo L_FN
       >;
     };
 
