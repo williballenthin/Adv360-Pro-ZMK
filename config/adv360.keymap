@@ -8,12 +8,20 @@
 #define HYP(key) LS(LC(LA(LG(key))))
 #define HYPER    LS(LC(LA(LGUI)))
 
+#define L_BASE 0
+#define L_KP   1
+#define L_FN   2
+#define L_MOD  3
+#define L_NONE 4
+#define L_NAV  5
+
 // caps word: whats part of the word beyond alphabetic?
 &caps_word {
 	continue-list = <UNDERSCORE MINUS>;
 };
 
 / {
+
   behaviors {
     #include "macros.dtsi"
 
@@ -31,33 +39,43 @@
   keymap {
     compatible = "zmk,keymap";
 
+    // index: 0 L_BASE
     default_layer {
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                                       &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                                        &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp HOME &none &none &kp PG_UP &none     &none           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &kp EQUAL     &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog L_KP                                                                    &mo L_MOD &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp TAB       &kp Q     &kp W    &kp E    &kp R      &kp T  &kp A                                                                        &kp B     &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
+        &lt L_NAV ESC &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL           &none     &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp LSHFT     &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp HOME &none &none &kp PG_UP &none     &none               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+        &mo L_FN      &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp SPACE                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo L_FN
       >;
     };
+
+    // keypad layer from Kinesis
+    // index: 1 L_KP
     keypad {
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                                       &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                                        &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp HOME &none &none &kp PG_UP &none     &none           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                                       &mo L_MOD &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
+        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                                        &none     &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
+        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none              &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL        &none     &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
+        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B            &none    &none     &kp HOME &none &none &kp PG_UP &none     &none            &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+        &mo L_FN  &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                   &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp KP_N0               &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo L_FN
       >;
     };
+
+    // fn layer from Kinesis
+    // index: 2 L_FN
     fn {
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                                       &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                                       &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans             &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none        &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &trans &trans              &trans &trans &trans  &trans  &trans
+        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog L_KP                                                    &mo L_MOD &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+        &trans &trans &trans &trans &trans &trans &none                                                        &none     &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans &trans &none         &trans &trans             &trans &trans        &none     &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none            &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &trans &trans                  &trans &trans &trans  &trans  &trans
       >;
     };
+
+    // mod layer from Kinesis
+    // index: 3 L_MOD
     mod {
       bindings = <
         &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                                                          &trans                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none
@@ -67,5 +85,30 @@
         &none &none        &none        &bl BL_INC   &bl BL_DEC                                       &rgb_ug RGB_TOG &bl BL_TOG &none                  &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none        &none        &none
       >;
     };
+
+    // template layer by willi
+    // index: 4 L_NONE
+    none {
+      bindings = <
+        &none &none &none &none &none &none &none                                                       &none &none &none &none &none &none &none
+        &none &none &none &none &none &none &none                                                       &none &none &none &none &none &none &none
+        &none &none &none &none &none &none &none          &none &none             &none &none          &none &none &none &none &none &none &none
+        &none &none &none &none &none &none          &none &none &none &none &none &none &none &none          &none &none &none &none &none &none
+        &none &none &none &none &none                &none &none &none             &none &none &none                &none &none &none &none &none
+      >;
+    };
+ 
+    // vim-like nav layer by willi
+    // invoked via &lt from default
+    // index: 5 L_NAV
+    nav {
+      bindings = <
+        &none &none &none &none &none &none &none                                                       &none &none    &none    &none  &none     &none &none
+        &none &none &none &none &none &none &none                                                       &none &none    &none    &none  &none     &none &none
+        &none &none &none &none &none &none &none          &none &none             &none &none          &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
+        &none &none &none &none &none &none          &none &none &none &none &none &none &none &none          &none    &none    &none  &none     &none &none
+        &none &none &none &none &none                &none &none &none             &none &none &none                   &none    &none  &none     &none &none 
+      >;
+    };         
   };
 };
