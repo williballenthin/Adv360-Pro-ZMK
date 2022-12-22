@@ -5,19 +5,19 @@
 #include <dt-bindings/zmk/backlight.h>
 
 / {
-    behaviors {
-      #include "macros.dtsi"
+  behaviors {
+    #include "macros.dtsi"
 
-      hm: homerow_mods {
-          compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          flavor = "tap-preferred";
-          bindings = <&kp>, <&kp>;
-      };
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      quick_tap_ms = <175>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
     };
+  };
 
   keymap {
     compatible = "zmk,keymap";
