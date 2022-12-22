@@ -104,11 +104,11 @@
     // index: 5 L_NAV
     nav {
       bindings = <
-        &none &none &none &none &none &none &none                                                       &none &none    &none    &none  &none     &none &none
-        &none &none &none &none &none &none &none                                                       &none &none    &none    &none  &none     &none &none
-        &none &none &none &none &none &none &none          &none &none             &none &none          &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
-        &none &none &none &none &none &none          &none &none &none &none &none &none &none &none          &none    &none    &none  &none     &none &none
-        &none &none &none &none &none                &none &none &none             &none &none &none                   &none    &none  &none     &none &none 
+        &none &none &none &none &kp END   &none     &none                                                        &none &kp HOME &none    &none  &none     &none &none
+        &none &none &none &none &none     &none     &none                                                        &none &none    &none    &none  &none     &none &none
+        &none &none &none &none &kp PG_DN &none     &none           &none &none             &none &none          &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
+        &none &none &none &none &none     &kp PG_UP       &none &none &none &none &none &none &none &none          &none    &none    &none  &none     &none &none
+        &none &none &none &none &none                     &none &none &none             &none &none &none                   &none    &none  &none     &none &none 
       >;
     };         
   };
