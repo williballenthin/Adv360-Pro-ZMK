@@ -18,6 +18,7 @@
 #define L_MOD  3
 #define L_NONE 4
 #define L_NAV  5
+#define L_PROG 6
 
 #define AS(keycode) &as LS(keycode) keycode     // autoshift, references behavior `as`
 
@@ -125,5 +126,17 @@
         &none &none &none &none &none                     &none &none &none             &none &none &none                   &none    &none  &none     &none &none 
       >;
     };         
+    // programming helper layer by willi
+    // invoked via &lt from default
+    // index: 6 L_PROG
+    nav {
+      bindings = <                                                                                                                               
+        &none &none &none &none &none &none &none                                                       &none &none     &none    &none    &none &none &none
+        &none &none &none &none &none &none &none                                                       &none &none     &kp LBRC &kp RBRC &none &none &none
+        &none &none &none &none &none &none &none          &none &none             &none &none          &none &kp UNDER &kp LPAR &kp RPAR &none &none &none
+        &none &none &none &none &none &none          &none &none &none &none &none &none &none &none          &none     &kp LBKT &kp RBKT &none &none &none
+        &none &none &none &none &none                &none &none &none             &none &none &none                    &none    &none    &none &none &none
+      >;
+    };
   };
 };
