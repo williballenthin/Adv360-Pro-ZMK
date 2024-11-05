@@ -51,11 +51,11 @@
     // index: 0 L_BASE
     default_layer {
       bindings = <
-        AS(EQUAL)      AS(N1)      AS(N2)       AS(N3)        AS(N4)        AS(N5) &tog L_KP                                                                      &mo L_MOD    AS(N6) AS(N7) AS(N8)    AS(N9)   AS(N0)   AS(MINUS)
-        &kp TAB        &kp Q       &kp W        &kp E         &kp R         &kp T  &kp APP_TERM                                                                   &kp APP_CODE &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &lt L_PROG ESC &lt L_NAV A &kp S        &kp D         &kp F         &kp G  &kp LC(LS(TAB))          &kp LCTRL   &kp EXPOSE  &kp LGUI  &kp RALT            &kp LC(TAB)  &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT      &kp Z       &kp X        &kp C         &kp V         &kp B                                       &kp ESC     &mo L_NAV                                  &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &kp LCTRL      AS(GRAVE)   &kp WKS_LEFT &kp WKS_RIGHT &kp LC(GRAVE)                        &kp BSPC &kp DEL     &kp LA(TAB) &kp TAB   &kp ENTER &kp SPACE                     &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo L_FN
+        AS(EQUAL)      AS(N1)      AS(N2)   AS(N3)    AS(N4)        AS(N5) &tog L_KP                                                                      &mo L_MOD    AS(N6) AS(N7) AS(N8)    AS(N9)   AS(N0)   AS(MINUS)
+        &kp TAB        &kp Q       &kp W    &kp E     &kp R         &kp T  &kp APP_TERM                                                                   &kp APP_CODE &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
+        &lt L_PROG ESC &lt L_NAV A &kp S    &kp D     &kp F         &kp G  &kp LC(LS(TAB))          &kp LCTRL   &kp EXPOSE  &kp LGUI  &kp RALT            &kp LC(TAB)  &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp LSHFT      &kp Z       &kp X    &kp C     &kp V         &kp B                                       &kp ESC     &mo L_NAV                                  &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+        &kp LCTRL      AS(GRAVE)   &kp LEFT &kp RIGHT &kp LC(GRAVE)                        &kp BSPC &kp DEL     &kp LA(TAB) &kp TAB   &kp ENTER &kp SPACE                     &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo L_FN
       >;
     };
 
@@ -112,11 +112,11 @@
     // index: 5 L_NAV
     nav {
       bindings = <
-        &none &none &none &none &kp END   &none     &none                                         &none &kp HOME &kp LA(LEFT) &kp LA(RIGHT) &none     &none &none
-        &none &none &none &none &none     &none     &none                                         &none &none    &none        &none         &none     &none &none
-        &none &none &none &none &kp PG_DN &none     &none       &none &none &none     &none       &none &kp LEFT &kp DOWN     &kp UP        &kp RIGHT &none &none
-        &none &none &none &none &none     &kp PG_UP                   &none &kp PG_UP                   &none    &none        &none         &none     &none &none
-        &none &none &none &none &none                     &none &none &none &kp PG_DN &none &none                &none        &none         &none     &none &none 
+        &none &none &none        &none         &kp END   &none     &none                                         &none &kp HOME &kp LA(LEFT) &kp LA(RIGHT) &none     &none &none
+        &none &none &none        &none         &none     &none     &none                                         &none &none    &none        &none         &none     &none &none
+        &none &none &none        &none         &kp PG_DN &none     &none       &none &none &none     &none       &none &kp LEFT &kp DOWN     &kp UP        &kp RIGHT &none &none
+        &none &none &none        &none         &none     &kp PG_UP                   &none &kp PG_UP                   &none    &none        &none         &none     &none &none
+        &none &none &kp WKS_LEFT &kp WKS_RIGHT &none                     &none &none &none &kp PG_DN &none &none                &none        &none         &none     &none &none 
       >;
     };         
 
