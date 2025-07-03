@@ -107,6 +107,7 @@
     // template layer by willi
     // index: 4 L_NONE
     none {
+      display-name = "Template";
       bindings = <
         &none &none &none &none &none &none &none                                           &none &none &none &none &none &none &none
         &none &none &none &none &none &none &none                                           &none &none &none &none &none &none &none
@@ -120,6 +121,7 @@
     // invoked via &lt from default
     // index: 5 L_NAV
     nav {
+      display-name = "Nav";
       bindings = <
         &none &none &none        &none         &kp END   &none     &none                                         &none &kp HOME &kp LA(LEFT) &kp LA(RIGHT) &none     &none &none
         &none &none &none        &none         &none     &none     &none                                         &none &none    &none        &none         &none     &none &none
@@ -133,6 +135,7 @@
     // invoked via &lt from default
     // index: 6 L_PROG
     prog {
+      display-name = "Prog";
       bindings = <                                                                                                                               
         &none &none &none &none &none &none &none                                           &none &none     &none    &none    &none &kp B &kp F12
         &none &none &none &none &none &none &none                                           &none &none     &kp LBRC &kp RBRC &none &none &none
@@ -141,6 +144,7 @@
         &none &none &none &none &none                &none &none &none &none &none &none                    &none    &none    &none &none &none
       >;
     };
+
     extra1 { 
       display-name = "Red";    
       status = "reserved";
