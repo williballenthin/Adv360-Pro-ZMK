@@ -13,4 +13,8 @@ $ make
 
 3. find results in ./firmware
 
-4. mount adv360 via `diskutil list` and `diskutil mount /dev/diskN`
+4. flash:
+- left: mod-1, right: mod-3
+- find device `diskutil list` (grep "ADV360PRO")
+- `diskutil mount /dev/diskN`, mounts to /Volumes/ADV360PRO/
+- cp firmware/...-clique.uf2 /Volumes/ADV360PRO/
